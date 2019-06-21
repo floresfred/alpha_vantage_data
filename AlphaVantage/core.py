@@ -1,3 +1,4 @@
+import requests
 
 BASE_URL = 'https://www.alphavantage.co/query?'
 
@@ -8,7 +9,7 @@ ENDPOINTS = {
     'weekly':'function=TIME_SERIES_WEEKLY',
     'weekly adjusted':'function=TIME_SERIES_WEEKLY_ADJUSTED',
     'monthly':'function=TIME_SERIES_MONTHLY',
-    'monthly adjusted':'function=TIME_SERIES_MONTHLY_AJUSTED',
+    'monthly adjusted':'function=TIME_SERIES_MONTHLY_ADJUSTED',
     'search':'function=SYMBOL_SEARCH',
     'exchange':'function=CURRENCY_EXCHANGE_RATE',
     'fx intraday':'function=FX_INTRADAY',
