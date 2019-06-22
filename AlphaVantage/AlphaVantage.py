@@ -69,4 +69,37 @@ class AlphaVantage:
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    #def get_fx_intraday(self, )
+    def get_fx_intraday(self, from_symbol, to_symbol, interval = '1min', outputsize = 'full'):
+        url = f'{BASE_URL}{ENDPOINTS.get("fx intraday")}&from_symbol={from_symbol}&to_symbol={to_symbol}&interval={interval}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_fx_daily(self, from_symbol, to_symbol, outputsize = 'full'):
+        url = f'{BASE_URL}{ENDPOINTS.get("fx daily")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_fx_weekly(self, from_symbol, to_symbol, outputsize = 'full'):
+        url = f'{BASE_URL}{ENDPOINTS.get("fx weekly")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_fx_monthly(self, from_symbol, to_symbol, outputsize = 'full'):
+        url = f'{BASE_URL}{ENDPOINTS.get("fx monthly")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_crypto_daily(self, symbol, market):
+        url = f'{BASE_URL}{ENDPOINTS.get("crypto daily")}&symbol={symbol}&market={market}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_crypto_weekly(self, symbol, market):
+        url = f'{BASE_URL}{ENDPOINTS.get("crypto weekly")}&symbol={symbol}&market={market}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
+
+    def get_crypto_monthly(self, symbol, market):
+        url = f'{BASE_URL}{ENDPOINTS.get("crypto monthly")}&symbol={symbol}&market={market}&apikey={self.key}'
+        resp = self._session.get(url)
+        return self._check_resp(resp)
