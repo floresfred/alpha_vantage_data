@@ -14,8 +14,9 @@ class AlphaVantage:
         Your personal API key
     '''
 
-    def __init__(self, key):
+    def __init__(self, key, test = True):
         self.key = key
+        self.test = test
         self._session = requests.Session()
 
     @property
@@ -26,6 +27,21 @@ class AlphaVantage:
         if not isinstance(value, str):
             raise TypeError('key must be string')
         self._key = value
+
+    @property
+    def test(self):
+        return self._test
+    @test.setter
+    def test(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('test must be Boolean')
+        self._test = value
+
+    @property
+    def outputsize(self):
+        if self.test:
+            return 'compact'
+        return 'full'
 
     def _check_resp(self, resp):
         '''Check whether a response came back correctly'''
@@ -46,7 +62,7 @@ class AlphaVantage:
         #if not errors, then return data
         return data
 
-    def get_intraday(self, symbol, interval = '1min', outputsize='full'):
+    def get_intraday(self, symbol, interval = '1min'):
         '''Hit the TIME_SERIES_INTRADAY endpoint
 
         Parameters
@@ -67,13 +83,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("intraday")}&symbol={symbol}&\
-        interval={interval}&outputsize={outputsize}&apikey={self.key}'
+        interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_daily(self, symbol, outputsize = 'full'):
+    def get_daily(self, symbol):
         '''Hit the TIME_SERIES_DAILY endpoint
 
         Parameters
@@ -92,13 +108,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("daily")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_daily_adjusted(self, symbol, outputsize = 'full'):
+    def get_daily_adjusted(self, symbol):
         '''Hit the TIME_SERIES_DAILY_ADJUSTED endpoint
 
         Parameters
@@ -117,13 +133,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("daily adjusted")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_weekly(self, symbol, outputsize = 'full'):
+    def get_weekly(self, symbol,):
         '''Hit the TIME_SERIES_WEEKLY endpoint
 
         Parameters
@@ -142,13 +158,13 @@ class AlphaVantage:
 
         #format url
         url = f'{BASE_URL}{ENDPOINTS.get("weekly")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_weekly_adjusted(self, symbol, outputsize = 'full'):
+    def get_weekly_adjusted(self, symbol):
         '''Hit the TIME_SERIES_WEEKLY_ADJUSTED endpoint
 
         Parameters
@@ -167,13 +183,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("weekly adjusted")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_monthly(self, symbol, outputsize = 'full'):
+    def get_monthly(self, symbol):
         '''Hit the TIME_SERIES_MONTHLY endpoint
 
         Parameters
@@ -192,13 +208,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("monthly")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_monthly_adjusted(self, symbol, outputsize = 'full'):
+    def get_monthly_adjusted(self, symbol):
         '''Hit the TIME_SERIES_MONTHLY_ADJUSTED endpoint
 
         Parameters
@@ -217,7 +233,7 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("monthly adjusted")}&symbol={symbol}\
-        &outputsize={outputsize}&apikey={self.key}'
+        &outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp =self._session.get(url)
@@ -294,13 +310,13 @@ class AlphaVantage:
         #foramt url
         url = f'{BASE_URL}{ENDPOINTS.get("fx intraday")}&\
         from_symbol={from_symbol}&to_symbol={to_symbol}\
-        &interval={interval}&apikey={self.key}'
+        &interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_fx_daily(self, from_symbol, to_symbol, outputsize = 'full'):
+    def get_fx_daily(self, from_symbol, to_symbol):
         '''Hit the FX_DAILY endpoint
 
         Parameters
@@ -321,13 +337,13 @@ class AlphaVantage:
 
         #format the url
         url = f'{BASE_URL}{ENDPOINTS.get("fx daily")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_fx_weekly(self, from_symbol, to_symbol, outputsize = 'full'):
+    def get_fx_weekly(self, from_symbol, to_symbol):
         '''Hit the FX_WEEKLY endpoint
 
         Parameters
@@ -348,13 +364,13 @@ class AlphaVantage:
 
         #format url
         url = f'{BASE_URL}{ENDPOINTS.get("fx weekly")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_fx_monthly(self, from_symbol, to_symbol, outputsize = 'full'):
+    def get_fx_monthly(self, from_symbol, to_symbol):
         '''Hit the FX_MONTHLY endpoint
 
         Parameters
@@ -375,7 +391,7 @@ class AlphaVantage:
 
         #format url
         url = f'{BASE_URL}{ENDPOINTS.get("fx monthly")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={outputsize}&apikey={self.key}'
+        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
