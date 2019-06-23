@@ -82,8 +82,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("intraday")}&symbol={symbol}&\
-        interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("intraday")}&symbol={symbol}&interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -107,8 +106,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("daily")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("daily")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -132,8 +130,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("daily adjusted")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("daily adjusted")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -157,8 +154,7 @@ class AlphaVantage:
         '''
 
         #format url
-        url = f'{BASE_URL}{ENDPOINTS.get("weekly")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("weekly")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -182,8 +178,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("weekly adjusted")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("weekly adjusted")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -207,8 +202,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("monthly")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("monthly")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -232,8 +226,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("monthly adjusted")}&symbol={symbol}\
-        &outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("monthly adjusted")}&symbol={symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp =self._session.get(url)
@@ -254,8 +247,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("search")}&keywords={keywords}\
-        &apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("search")}&keywords={keywords}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -278,9 +270,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("exchange")}\
-        &from_currency={from_currency}&to_currency={to_currency}\
-        &apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("exchange")}&from_currency={from_currency}&to_currency={to_currency}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -308,9 +298,7 @@ class AlphaVantage:
         '''
 
         #foramt url
-        url = f'{BASE_URL}{ENDPOINTS.get("fx intraday")}&\
-        from_symbol={from_symbol}&to_symbol={to_symbol}\
-        &interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("fx intraday")}&from_symbol={from_symbol}&to_symbol={to_symbol}&interval={interval}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -336,8 +324,7 @@ class AlphaVantage:
         '''
 
         #format the url
-        url = f'{BASE_URL}{ENDPOINTS.get("fx daily")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("fx daily")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -363,8 +350,7 @@ class AlphaVantage:
         '''
 
         #format url
-        url = f'{BASE_URL}{ENDPOINTS.get("fx weekly")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("fx weekly")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -390,8 +376,7 @@ class AlphaVantage:
         '''
 
         #format url
-        url = f'{BASE_URL}{ENDPOINTS.get("fx monthly")}&from_symbol={from_symbol}\
-        &to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("fx monthly")}&from_symbol={from_symbol}&to_symbol={to_symbol}&outputsize={self.outputsize}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -414,8 +399,7 @@ class AlphaVantage:
         '''
 
         #format url
-        url = f'{BASE_URL}{ENDPOINTS.get("crypto daily")}&symbol={symbol}\
-        &market={market}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("crypto daily")}&symbol={symbol}&market={market}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
@@ -438,8 +422,7 @@ class AlphaVantage:
         '''
 
         #format url
-        url = f'{BASE_URL}{ENDPOINTS.get("crypto weekly")}&symbol={symbol}\
-        &market={market}&apikey={self.key}'
+        url = f'{BASE_URL}{ENDPOINTS.get("crypto weekly")}&symbol={symbol}&market={market}&apikey={self.key}'
 
         #get and check
         resp = self._session.get(url)
