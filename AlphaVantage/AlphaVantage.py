@@ -71,9 +71,6 @@ class AlphaVantage:
             The symbol for the stock wanted
         interval : str (default '1min')
             The interval between each data point
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -95,9 +92,6 @@ class AlphaVantage:
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -119,9 +113,6 @@ class AlphaVantage:
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -136,16 +127,13 @@ class AlphaVantage:
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_weekly(self, symbol,):
+    def get_weekly(self, symbol):
         '''Hit the TIME_SERIES_WEEKLY endpoint
 
         Parameters
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -167,9 +155,6 @@ class AlphaVantage:
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -191,9 +176,6 @@ class AlphaVantage:
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -215,9 +197,6 @@ class AlphaVantage:
         ----------
         symbol : str
             The symbol for the stock wanted
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -276,7 +255,7 @@ class AlphaVantage:
         resp = self._session.get(url)
         return self._check_resp(resp)
 
-    def get_fx_intraday(self, from_symbol, to_symbol, interval = '1min', outputsize = 'full'):
+    def get_fx_intraday(self, from_symbol, to_symbol, interval = '1min'):
         '''Hit the FX_INTRADAY endpoint
 
         Parameters
@@ -287,9 +266,6 @@ class AlphaVantage:
             The symbol of the second currency
         interval : str (default '1min')
             The interval between each data point
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -313,9 +289,6 @@ class AlphaVantage:
             The symbol of the first currency
         to_symbol : str
             The symbol of the second currency
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -339,9 +312,6 @@ class AlphaVantage:
             The symbol of the first currency
         to_symbol : str
             The symbol of the second currency
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
@@ -365,9 +335,6 @@ class AlphaVantage:
             The symbol of the first currency
         to_symbol : str
             The symbol of the second currency
-        outputsize : str (default 'full')
-            Either one of 'full', 'compact'.  If 'compact', only returns 100
-            entries
 
         Returns
         -------
