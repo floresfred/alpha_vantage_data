@@ -1,6 +1,6 @@
 # AlphaVantage
 
-This package (when fully developed) will provide functionality to access various API endpoints for the Alpha Vantage API.
+This package provides functionality to access various API endpoints for the Alpha Vantage API.
 
 *All end-user functionality exists within the AlphaVantage class in this package.*
 
